@@ -1,0 +1,118 @@
+/*
+ * Blipread
+ *
+ */
+
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 81.25%; /* should match system size */
+  margin: 0;
+  background: rgb(241, 243, 244);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.shelf {
+  flex: 1 1 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.bookmark {
+  flex: 0 0 auto;
+  display: inline-block;
+  width: 100px;
+  margin: 12px;
+}
+
+.bookmark>a {
+  display: block;
+  padding: 12px 8px;
+  text-decoration: none;
+  letter-spacing: -0.5px;
+  color: inherit;
+  transition: all 200ms ease-out;
+}
+
+.bookmark>a:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  background-color: white;
+  border-radius: 8px;
+  transform: translateY(-2px);
+}
+
+.bookmark__img {
+  display: block;
+  margin: 0 0 12px;
+}
+
+.bookmark__img>img {
+  filter: grayscale();
+}
+
+.bookmark:hover img {
+  filter: none;
+}
+
+.bookmark__label {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.motivational {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 8px;
+  color: rgba(0, 0, 0, 0.5);
+
+  opacity: 0.0;
+  animation-duration: 10s;
+  animation-name: motivational-fadein;
+}
+
+@keyframes motivational-fadein {
+  0% { opacity: 0.0; }
+  10% { opacity: 0.0; }
+  40% { opacity: 1.0; }
+  80% { opacity: 1.0; }
+  100% { opacity: 0.0; }
+}
+
+.root__error {
+  font-size: 1.1em;
+}
+
+.mdc-button {
+  /* Material Design Component Button */
+  -webkit-appearance: none;
+  height: 36px;
+  padding: 0 16px;
+  border: 0;
+  border-radius: 4px;
+  background-color: rgb(51, 103, 214);
+  color: rgb(255, 255, 255);
+  font-size: 13px;
+  font-weight: 500;
+  text-transform: uppercase;
+  box-shadow: 0 3px 1px -2px rgba(0,0,0,.2), 0 2px 2px 0 rgba(0,0,0,.14), 0 1px 5px 0 rgba(0,0,0,.12);
+  cursor: pointer;
+  transition: all 200ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.mdc-button:hover {
+  background-color: rgb(66, 133, 244);
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12)
+}

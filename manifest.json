@@ -1,0 +1,35 @@
+{
+  "manifest_version": 2,
+
+
+  "name": "Blipread: page reading time",
+  "short_name": "Blipread",
+  "version": "1.0.0",
+  "description": "Page reading time in a minimal package.",
+  "author": "Erin Casali",
+
+  "icons": {
+    "16": "icon/icon16.png",
+    "32": "icon/icon32.png",
+    "48": "icon/icon48.png",
+    "128": "icon/icon128.png"
+  },
+
+  "browser_action": {
+    // needs to exist in order for chrome.browserAction to be available
+  },
+
+  "background": {
+    "scripts": ["js/background.js"]
+  },
+
+  "content_scripts": [
+    { "js": [ "js/content.js" ], "matches": [ "<all_urls>" ], "run_at": "document_end" }
+  ],
+
+  "permissions": [
+    "tabs",
+    "<all_urls>",
+    "storage"
+  ]
+}
