@@ -7,10 +7,10 @@ class Blipread {
     this.canvas = document.createElement('canvas');
     this.context = this.canvas.getContext('2d');
 
-    this.readingSpeed = 200; // Default
+    this.readingSpeed = 200; // Average reading speed
     chrome.storage.sync.get('readingSpeed', function(data) {
       this.readingSpeed = data.readingSpeed;
-    });
+    }.bind(this));
     chrome.storage.onChanged.addListener(this.onOptionsChange.bind(this));
     //chrome.storage.sync.set({'readingSpeed': 250});
 
