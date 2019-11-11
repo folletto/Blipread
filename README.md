@@ -56,6 +56,6 @@ LICENSE
   _Licensed under **BSD Opensource License** (free for personal and commercial use)_
 
 
-> _A book is a dream_
-> _you hold in your hands_
+> _A book is a dream_  
+> _you hold in your hands_  
 > _— Neil Gaiman_
