@@ -10,7 +10,7 @@ WHAT IS BLIPREAD
 ----------------
 
 Blipread is a simple way to see how long it takes for you to read a page.
-Read now or later? How much time do you have? Here's the answer.
+How much time do you have? Read now or later? Here's the answer.
 
 This extension should work on Windows, Mac and Linux. (untested)
 
@@ -19,13 +19,17 @@ USAGE
 -----
 
 Just keep the icon visible and see how long does it take for you to read.
-The reading speed can be customized to match your own.
+Click on the icon to update the time.
+
+Check the options to customize with your reading speed.
 
 
 KNOWN LIMITATIONS
 -----------------
 
-* None.
+* The icon always reflect the currently focused page, even if there are
+  multiple windows opened, they will always show the same number.
+  This is a Chrome limitation.
 
 
 TODO
@@ -43,11 +47,8 @@ WILL NOT DO
 CHANGELOG
 ---------
 
-* **1.0.0** (? Jan 2020)
+* **0.1.0** (11 Nov 2019)
   * First public release.
-
-* **0.1.0** (? Dec 2019)
-  * First private release.
 
 
 
@@ -58,4 +59,4 @@ LICENSE
   _Licensed under **BSD Opensource License** (free for personal and commercial use)_
 
 
-> _Where thou art, that is home._
+> _A book is a dream you hold in your hands — Neil Gaiman_
