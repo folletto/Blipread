@@ -23,6 +23,8 @@ Click on the icon to update the time.
 
 Check the options to customize with your reading speed.
 
+Thanks to Tom Ross (@umpox) for the concept.
+
 
 KNOWN LIMITATIONS
 -----------------
@@ -31,11 +33,6 @@ KNOWN LIMITATIONS
   multiple windows opened, they will always show the same number.
   This is a Chrome limitation.
 
-
-TODO
-----
-
-* Write all of it.
 
 
 WILL NOT DO
@@ -59,4 +56,6 @@ LICENSE
   _Licensed under **BSD Opensource License** (free for personal and commercial use)_
 
 
-> _A book is a dream you hold in your hands — Neil Gaiman_
+> _A book is a dream_
+> _you hold in your hands_
+> _— Neil Gaiman_
