@@ -18,7 +18,7 @@
   },
 
   "browser_action": {
-    // needs to exist in order for chrome.browserAction to be available
+    "default_title": "Minutes required for you to read this page"
   },
 
   "background": {
