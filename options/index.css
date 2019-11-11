@@ -1,0 +1,114 @@
+/*
+ * Blipread
+ *
+ */
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-size: 81.25%; /* should match system size */
+  margin: 0;
+  background: rgb(241, 243, 244);
+}
+
+#root {
+}
+
+toolbar {
+  display: flex;
+  background: rgb(51, 103, 214);
+  color: rgb(255, 255, 255);
+  height: 56px;
+}
+
+toolbar h1 {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 16px;
+  letter-spacing: 0.25px;
+  margin: 8px;
+  padding: 12px;
+}
+
+.basic-page {
+  max-width: 680px;
+  margin: 0 auto;
+}
+
+.basic-page h2 {
+  font-size: 14px;
+  font-weight: 400;
+  margin: 21px 0 12px;
+  padding: 8px 0 4px;
+}
+
+card {
+  display: flex;
+  flex-direction: column;
+
+  margin: 8px auto 0;
+  padding: 0;
+
+  background: #ffffff;
+  border-radius: 4px;
+  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+}
+
+.card-row {
+  display: flex;
+  flex-direction: row;
+
+  padding: 0 20px;
+
+  border-bottom: 1px solid rgb(220, 220, 220);
+}
+
+.card-row:last-child {
+  border-bottom: none;
+}
+
+.card-row label {
+  padding: 16px 0;
+  width: 100%;
+}
+
+.card-row .content {
+  width: 100%;
+  text-align: right;
+}
+
+input[type="number"] {
+  border: none; /*1px solid rgb(200, 200, 200);*/
+  border-radius: 2px;
+  padding: 8px;
+  margin: 8px 0;
+  width: 60px;
+
+  background: rgb(241, 243, 244);
+  font-size: 13px;
+}
+
+input[type="number"]:focus {
+  outline-color: transparent;
+  outline-style: none;
+
+  border-bottom: 0px solid rgb(51, 103, 214);
+  box-shadow: rgb(51, 103, 214) 0px 2px;
+}
+
+.card-button {
+  margin: 8px 0;
+  padding: 8px 12px;
+
+  color: rgb(51, 103, 214);
+  border: 1px solid rgb(220, 220, 220);
+  border-radius: 4px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.card-button:focus {
+  outline-color: transparent;
+  outline-style: none;
+  
+  border-color: rgb(51, 103, 214);
+}

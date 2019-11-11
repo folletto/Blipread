@@ -11,6 +11,7 @@ class Blipread {
     chrome.storage.sync.get('readingSpeed', function(data) {
       this.readingSpeed = data.readingSpeed;
     });
+    chrome.storage.onChanged.addListener(this.onOptionsChange.bind(this));
     //chrome.storage.sync.set({'readingSpeed': 250});
 
     // Update when the page ends loading
@@ -29,6 +30,10 @@ class Blipread {
   onContentUpdate(request, sender, sendResponse) {
     let label = Math.ceil(request.contentLength / this.readingSpeed) + "′";
     this.setExtensionIcon(label);
+  }
+
+  onOptionsChange(changes, areaName) {
+    if (changes.readingSpeed) this.readingSpeed = changes.readingSpeed.newValue;
   }
 
   setExtensionIcon(label) {
