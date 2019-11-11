@@ -18,6 +18,9 @@ class Blipread {
     chrome.runtime.onMessage.addListener(this.onContentUpdate.bind(this));
     // Update when switching tabs
     chrome.tabs.onActivated.addListener(this.executeContentScript.bind(this));
+    // Update when switching windows
+    chrome.windows.onFocusChanged.addListener(this.executeContentScript.bind(this));
+
     // Run on icon click
     chrome.browserAction.onClicked.addListener((function(tab) { this.executeContentScript(); }).bind(this) );
   }
