@@ -28,7 +28,13 @@ class Blipread {
   }
 
   onContentUpdate(request, sender, sendResponse) {
-    let label = Math.ceil(request.contentLength / this.readingSpeed) + "′";
+    var label = Math.ceil(request.contentLength / this.readingSpeed);
+    if (label > 60) {
+      label = "+";
+    } else {
+      label = label + "′";
+    }
+
     this.setExtensionIcon(label);
   }
 
