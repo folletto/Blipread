@@ -47,7 +47,7 @@ WILL NOT DO
 CHANGELOG
 ---------
 
-* **0.1.0** (11 Nov 2019)
+* **1.0.0** (11 Nov 2019)
   * First public release.
 
 
