@@ -19,7 +19,7 @@ export class Options {
         <h2>Options</h2>
         <card>
           <div class="card-row">
-            <label>Reading speed</label>
+            <label>Reading speed (wpm)</label>
             <div class="content">
               <input id="readingSpeed" type="number" value="${this.getReadingSpeed()}" />
             </div>
