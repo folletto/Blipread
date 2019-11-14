@@ -1,13 +1,16 @@
 import {goo} from './goo.js';
 import {Toolbar} from './goo.toolbar.js';
 
+const AVERAGE_READING_SPEED = 200;
+
 export class Options {
   constructor() {
-    this.readingSpeed = 200;
+    this.readingSpeed = AVERAGE_READING_SPEED;
 
     chrome.storage.sync.get('readingSpeed', function(data) {
-      this.readingSpeed = data.readingSpeed;
-      console.log(data.readingSpeed);
+      if (data.readingSpeed > 0) {
+        this.readingSpeed = data.readingSpeed;
+      }
       goo.refresh(this);
     }.bind(this));
   }

@@ -2,14 +2,18 @@
  * Blipread: internal process
  */
 
+const AVERAGE_READING_SPEED = 200;
+
 class Blipread {
   constructor() {
     this.canvas = document.createElement('canvas');
     this.context = this.canvas.getContext('2d');
 
-    this.readingSpeed = 200; // Average reading speed
+    this.readingSpeed = AVERAGE_READING_SPEED; // Average reading speed
     chrome.storage.sync.get('readingSpeed', function(data) {
-      this.readingSpeed = data.readingSpeed;
+      if (data.readingSpeed > 0) {
+        this.readingSpeed = data.readingSpeed;
+      }
     }.bind(this));
     chrome.storage.onChanged.addListener(this.onOptionsChange.bind(this));
     //chrome.storage.sync.set({'readingSpeed': 250});
@@ -42,7 +46,13 @@ class Blipread {
   }
 
   onOptionsChange(changes, areaName) {
-    if (changes.readingSpeed) this.readingSpeed = changes.readingSpeed.newValue;
+    if (changes.readingSpeed) {
+      if (changes.readingSpeed.newValue > 0) {
+        this.readingSpeed = changes.readingSpeed.newValue;
+      } else {
+        this.readingSpeed = AVERAGE_READING_SPEED;
+      }
+    }
   }
 
   setExtensionIcon(label) {
