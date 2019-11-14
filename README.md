@@ -2,7 +2,7 @@ Blipread - Google Chrome Extension
 ==================================
 
 **Quickly see how long does it take to read a page. BSD Licensed.**  
-<https://chrome.google.com/webstore/detail/TBD>  
+<https://chrome.google.com/webstore/detail/pimmlmgpidiceckodhdifoppcidlndbp>  
 
 
 
