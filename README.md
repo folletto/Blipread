@@ -44,6 +44,9 @@ WILL NOT DO
 CHANGELOG
 ---------
 
+* **1.0.1** (14 Nov 2019)
+  * Fix: reading speed wasn't set on first start.
+
 * **1.0.0** (11 Nov 2019)
   * First public release.
 
