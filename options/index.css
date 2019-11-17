@@ -41,6 +41,10 @@ toolbar h1 {
   padding: 8px 0 4px;
 }
 
+.basic-page a {
+  color: rgb(51, 103, 214);
+}
+
 card {
   display: flex;
   flex-direction: column;
@@ -109,6 +113,6 @@ input[type="number"]:focus {
 .card-button:focus {
   outline-color: transparent;
   outline-style: none;
-  
+
   border-color: rgb(51, 103, 214);
 }
