@@ -44,6 +44,10 @@ WILL NOT DO
 CHANGELOG
 ---------
 
+* **1.0.2** (15 Dec 2020)
+  * Feature: added support for Dark Mode (thanks to @keoshi).
+  * Feature: added information on reading speed and link to reading test.
+
 * **1.0.1** (14 Nov 2019)
   * Fix: reading speed wasn't set on first start.
 
