@@ -7,7 +7,7 @@ export class Options {
   constructor() {
     this.readingSpeed = AVERAGE_READING_SPEED;
 
-    chrome.storage.sync.get('readingSpeed', function(data) {
+    chrome.storage.sync.get(null, function(data) {
       if (data.readingSpeed > 0) {
         this.readingSpeed = data.readingSpeed;
       }
