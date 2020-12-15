@@ -42,10 +42,7 @@ class Blipread {
       label = label + "′";
     }
 
-    var color = "#000000";
-    if ("dark" == request.schemeColor) {
-      color = "#ffffff";
-    }
+    var color = request.schemeColor == "dark" ? "#ffffff" : "#000000";
 
     this.setExtensionIcon(label, color);
   }
