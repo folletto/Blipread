@@ -42,7 +42,9 @@ class Blipread {
       label = label + "′";
     }
 
-    this.setExtensionIcon(label);
+    var color = request.schemeColor == "dark" ? "#ffffff" : "#000000";
+
+    this.setExtensionIcon(label, color);
   }
 
   onOptionsChange(changes, areaName) {
@@ -55,14 +57,14 @@ class Blipread {
     }
   }
 
-  setExtensionIcon(label) {
+  setExtensionIcon(label, color) {
     this.canvas.width = 32;
     this.canvas.height = 32;
 
     this.context.font = "23px Helvetica";
     this.context.textAlign = "center";
     this.context.textBaseline = "middle";
-    this.context.fillStyle = "#000000";
+    this.context.fillStyle = color;
     this.context.fillText(label, 17, 17);
 
     chrome.browserAction.setIcon({
