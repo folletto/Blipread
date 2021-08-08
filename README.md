@@ -44,6 +44,9 @@ WILL NOT DO
 CHANGELOG
 ---------
 
+* **1.0.3** (8 Aug 2021)
+  * Feature: added manual option to change icon label color (for dark themes)
+
 * **1.0.2** (15 Dec 2020)
   * Feature: added support for Dark Mode (thanks to @keoshi).
   * Feature: added information on reading speed and link to reading test.
