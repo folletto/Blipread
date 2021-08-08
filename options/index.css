@@ -80,18 +80,25 @@ card {
   text-align: right;
 }
 
-input[type="number"] {
+input[type="number"],
+select {
   border: none; /*1px solid rgb(200, 200, 200);*/
   border-radius: 2px;
   padding: 8px;
   margin: 8px 0;
-  width: 60px;
+  width: 50px;
 
   background: rgb(241, 243, 244);
   font-size: 13px;
 }
 
-input[type="number"]:focus {
+select {
+  width: 140px;
+  border-right: transparent 8px solid;
+}
+
+input[type="number"]:focus,
+select:focus {
   outline-color: transparent;
   outline-style: none;
 

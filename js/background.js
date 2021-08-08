@@ -3,6 +3,7 @@
  */
 
 const AVERAGE_READING_SPEED = 200;
+const COLOR_DEFAULT = "";
 
 class Blipread {
   constructor() {
@@ -10,10 +11,12 @@ class Blipread {
     this.context = this.canvas.getContext('2d');
 
     this.readingSpeed = AVERAGE_READING_SPEED; // Average reading speed
+    this.colorManual = COLOR_DEFAULT;
     chrome.storage.sync.get(null, function(data) {
       if (data.readingSpeed > 0) {
         this.readingSpeed = data.readingSpeed;
       }
+      this.colorManual = data.colorManual;
     }.bind(this));
     chrome.storage.onChanged.addListener(this.onOptionsChange.bind(this));
     //chrome.storage.sync.set({'readingSpeed': 250});
@@ -53,6 +56,10 @@ class Blipread {
         this.readingSpeed = AVERAGE_READING_SPEED;
       }
     }
+
+    if (changes.colorManual) {
+      this.colorManual = changes.colorManual.newValue;
+    }
   }
 
   setExtensionIcon(label) {
@@ -62,7 +69,11 @@ class Blipread {
     this.context.font = "23px Helvetica";
     this.context.textAlign = "center";
     this.context.textBaseline = "middle";
-    this.context.fillStyle = (window.matchMedia('(prefers-color-scheme: dark)').matches ? "#f2f3f4" : "#606368");
+    if (this.colorManual == COLOR_DEFAULT) {
+      this.context.fillStyle = (window.matchMedia('(prefers-color-scheme: dark)').matches ? "#f2f3f4" : "#606368");
+    } else {
+      this.context.fillStyle = "#" + this.colorManual;
+    } 
     this.context.fillText(label, 17, 17);
 
     chrome.browserAction.setIcon({
