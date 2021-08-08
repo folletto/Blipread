@@ -10,9 +10,6 @@ body {
   background: rgb(241, 243, 244);
 }
 
-#root {
-}
-
 toolbar {
   display: flex;
   background: rgb(51, 103, 214);
@@ -110,8 +107,9 @@ select:focus {
   margin: 8px 0;
   padding: 8px 12px;
 
-  color: rgb(51, 103, 214);
-  border: 1px solid rgb(220, 220, 220);
+  color: rgb(255, 255, 255);
+  background: rgb(26, 115, 232);
+  border: none;
   border-radius: 4px;
   font-size: 13px;
   font-weight: 600;
@@ -121,5 +119,15 @@ select:focus {
   outline-color: transparent;
   outline-style: none;
 
-  border-color: rgb(51, 103, 214);
+  box-shadow: 0 0 0 2px rgba(26, 115, 232, .4);
+}
+
+.card-button:active:hover {
+  background: rgb(120, 159, 234);
+}
+
+.card-button:hover {
+  background: rgba(26, 115, 232, .9);
+  box-shadow: 0 1px 2px 0 rgba(66, 133, 244, .3),
+              0 1px 3px 1px rgba(66, 133, 244, .15);
 }
