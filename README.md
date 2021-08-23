@@ -44,6 +44,9 @@ WILL NOT DO
 CHANGELOG
 ---------
 
+* **1.0.4** (23 Aug 2021)
+  * Fix: Google Web Store policy warning (#8)
+
 * **1.0.3** (8 Aug 2021)
   * Feature: added manual option to change icon label color (for dark themes)
 
@@ -62,7 +65,7 @@ CHANGELOG
 LICENSE
 -------
 
-  _Copyright (C) 2019, Erin Casali_  
+  _Copyright (C) 2021, Erin Casali_  
   _Licensed under **BSD Opensource License** (free for personal and commercial use)_
 
 
