@@ -52,7 +52,7 @@ export class Options {
           <div class="card-row">
             <label>
               The average reading speed is between 150 and 210.<br />
-              To measure your reading speed, you can use <a href="https://www.myreadspeed.com/calculate/">this website</a>.
+              To measure your reading speed, check online one of the many reading speed calculators in wpm.
             </label>
           </div>
         </card>
