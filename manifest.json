@@ -1,10 +1,10 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
 
 
   "name": "Blipread: page reading time",
   "short_name": "Blipread",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "Page reading time in a minimal package.",
   "author": "Erin Casali",
 
@@ -17,12 +17,13 @@
     "128": "icon/icon128.png"
   },
 
-  "browser_action": {
+  "action": {
     "default_title": "Minutes required for you to read this page"
   },
 
   "background": {
-    "scripts": ["js/background.js"]
+    "service_worker": "js/service_worker.js",
+    "type": "module"
   },
 
   "content_scripts": [
@@ -30,7 +31,12 @@
   ],
 
   "permissions": [
-    "<all_urls>",
+    "tabs",
+    "scripting",
     "storage"
+  ],
+
+  "host_permissions": [
+    "<all_urls>"
   ]
 }
