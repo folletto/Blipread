@@ -2,17 +2,16 @@ import {goo} from './goo.js';
 import {Toolbar} from './goo.toolbar.js';
 
 const AVERAGE_READING_SPEED = 200;
-const COLOR_DEFAULT = "";
+const COLOR_DEFAULT = "606368";
 const COLOR_SET = {
-  'Dynamic': COLOR_DEFAULT,
   'Light': "f2f3f4",
-  'Dark': "606368"
+  'Dark': COLOR_DEFAULT
 };
 
 export class Options {
   constructor() {
     this.readingSpeed = AVERAGE_READING_SPEED;
-    this.colorManual = "";
+    this.colorManual = COLOR_DEFAULT;
 
     chrome.storage.sync.get(null, function(data) {
       if (data.readingSpeed > 0) {
@@ -66,6 +65,7 @@ export class Options {
 
   renderColorSet() {
     let htmlColorSet = "";
+    if (this.colorManual == "") this.colorManual = COLOR_DEFAULT;
 
     for (let key in COLOR_SET) {
       htmlColorSet += `<option value="${COLOR_SET[key]}" ${COLOR_SET[key] == this.colorManual ? 'selected' : ''}>${key}</option>`;

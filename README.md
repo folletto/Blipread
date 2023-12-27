@@ -44,6 +44,9 @@ WILL NOT DO
 CHANGELOG
 ---------
 
+* **1.0.5** (27 Dec 2023)
+  * Updated to Manifest V3
+
 * **1.0.4** (23 Aug 2021)
   * Fix: Google Web Store policy warning (#8)
 
@@ -65,7 +68,7 @@ CHANGELOG
 LICENSE
 -------
 
-  _Copyright (C) 2021, Erin Casali_  
+  _Copyright (C) 2023, Erin Casali_  
   _Licensed under **BSD Opensource License** (free for personal and commercial use)_
 
 
