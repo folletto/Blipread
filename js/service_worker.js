@@ -30,7 +30,10 @@ class Blipread {
   }
 
   executeContentScript() {
+    // Default
     this.setExtensionIcon("·");
+    chrome.action.setTitle({ title: "Page too short, or marked as private by Chrome" });
+
     chrome.tabs.query({ active: true, lastFocusedWindow: true }).then(function([tab]) {
       if (tab && tab.id) {
         chrome.scripting.executeScript({
@@ -43,6 +46,7 @@ class Blipread {
 
   onContentUpdate(request, sender, sendResponse) {
     var label = Math.ceil(request.contentLength / this.readingSpeed);
+    chrome.action.setTitle({ title: label + " min read · click to refresh" });
     if (label > 60) {
       label = "+";
     } else {
