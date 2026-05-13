@@ -32,15 +32,19 @@ class Blipread {
   executeContentScript() {
     // Default
     this.setExtensionIcon("·");
-    chrome.action.setTitle({ title: "Page too short, or marked as private by Chrome" });
+    chrome.action.setTitle({ title: "Page too short" });
 
     chrome.tabs.query({ active: true, lastFocusedWindow: true }).then(function([tab]) {
       if (tab && tab.id) {
         chrome.scripting.executeScript({
           target: { tabId: tab.id },
           files: [ "js/content.js" ]
-        })  
+        }).catch(() => {
+          chrome.action.setTitle({ title: "This page is not accessible" });
+        });
       }
+    }).catch(() => {
+      chrome.action.setTitle({ title: "No tab found" });
     });
   }
 
