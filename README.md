@@ -44,6 +44,13 @@ WILL NOT DO
 CHANGELOG
 ---------
 
+* **1.1.0** (16 May 2026)
+  * Added popup on click with reading time
+  * Show selected text reading time in popup
+  * Improved event structure, added error handling
+  * Restyled options screen to match Chrome again
+  * Added explicit error information due to 1-star reviews from people that didn't try other sites
+
 * **1.0.5** (27 Dec 2023)
   * Updated to Manifest V3
 
@@ -68,10 +75,10 @@ CHANGELOG
 LICENSE
 -------
 
-  _Copyright (C) 2023, Erin Casali_  
+  _Copyright (C) 2026, Erin Casali_  
   _Licensed under **BSD Opensource License** (free for personal and commercial use)_
 
 
-> _A book is a dream_  
-> _you hold in your hands_  
-> _— Neil Gaiman_
+> _Time could crawl, it could fly, it could amble._  
+> _Time was a slippery thing._  
+> _— Becky Chambers_
