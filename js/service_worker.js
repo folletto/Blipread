@@ -18,8 +18,8 @@ class Blipread {
     chrome.storage.onChanged.addListener(this.onOptionsChange.bind(this));
     //chrome.storage.sync.set({'readingSpeed': 250});
 
-    // Update when the page ends loading
-    chrome.runtime.onMessage.addListener(this.onContentUpdate.bind(this));
+    // Update when messages are sent
+    chrome.runtime.onMessage.addListener(this.onMessageUpdate.bind(this));
     // Update when switching tabs
     chrome.tabs.onActivated.addListener(this.executeContentScript.bind(this));
     // Update when switching windows
@@ -48,16 +48,33 @@ class Blipread {
     });
   }
 
-  onContentUpdate(request, sender, sendResponse) {
-    var label = Math.ceil(request.contentLength / this.readingSpeed);
-    chrome.action.setTitle({ title: label + " min read · click to refresh" });
-    if (label > 60) {
-      label = "+";
-    } else {
-      label = label + "′";
+  sendMessage(request) {
+    // chrome.runtime.sendMessage doesn't send to self.
+    // This function emulates the self-sending, so the service worker doesn't need a special logic
+    this.onMessageUpdate(request);
+    chrome.runtime.sendMessage(request).catch(() => {});
+  }
+
+  onMessageUpdate(request, sender, sendResponse) {
+    if (request.pageState) {
+      this.sendMessage({ pageEval: {
+        pageTime: Math.ceil(request.pageState.pageWordsLength / this.readingSpeed),
+        selectionTime: Math.ceil(request.pageState.selectionWordsLength / this.readingSpeed)
+      } });
     }
 
-    this.setExtensionIcon(label);
+    if (request.pageEval) {
+      chrome.action.setTitle({ title: request.pageEval.pageTime + " min read · click to refresh" });
+
+      var labelIcon = "";
+      if (request.pageEval.pageTime > 60) {
+        labelIcon = "+";
+      } else {
+        labelIcon = request.pageEval.pageTime + "′";
+      }
+
+      this.setExtensionIcon(labelIcon);
+    }
   }
 
   onOptionsChange(changes, areaName) {

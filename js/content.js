@@ -1,3 +1,4 @@
-chrome.runtime.sendMessage({
-	contentLength: document.body.innerText.split(' ').length
-});
+chrome.runtime.sendMessage({ pageState: {
+	pageWordsLength: document.body.innerText.split(' ').length,
+	selectionWordsLength: window.getSelection().toString().trim().split(' ').length
+} });
