@@ -41,17 +41,17 @@ class Blipread {
     this.setExtensionIcon("·");
     chrome.action.setTitle({ title: TEXT_REFRESH_DEFAULT });
 
-    chrome.tabs.query({ active: true, lastFocusedWindow: true }).then(function([tab]) {
+    chrome.tabs.query({ active: true, lastFocusedWindow: true }).then(([tab]) => {
       if (tab && tab.id) {
         chrome.scripting.executeScript({
           target: { tabId: tab.id },
           files: [ "js/content.js" ]
         }).catch(() => {
-          chrome.action.setTitle({ title: TEXT_PAGE_NOT_ACCESSIBLE });
+          this.sendMessage({ pageError: TEXT_PAGE_NOT_ACCESSIBLE });
         });
       }
     }).catch(() => {
-      chrome.action.setTitle({ title: TEXT_TAB_NOT_FOUND });
+      this.sendMessage({ pageError: TEXT_TAB_NOT_FOUND });
     });
   }
 

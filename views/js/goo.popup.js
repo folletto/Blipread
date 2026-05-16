@@ -1,15 +1,24 @@
 import {goo} from './goo.js';
 import {InfoBlock} from './goo.infoblock.js';
 
+// Text
+const TEXT_ERROR_INFO = `This is normal for Chrome pages, including the Chrome Web Store. If this is showing up elsewhere, please report this <a href="https://github.com/folletto/Blipread/issues" target="_blank">here</a>.`;
+
 export class Popup {
   constructor() {
     this.pageTime = null;
     this.selectionTime = null;
+    this.errorMessage = null;
 
     chrome.runtime.onMessage.addListener((request) => {
       if (request.pageEval) {
         this.pageTime = request.pageEval.pageTime;
         this.selectionTime = request.pageEval.selectionTime;
+        this.errorMessage = null;
+        goo.refresh(this);
+      }
+      if (request.pageError) {
+        this.errorMessage = request.pageError;
         goo.refresh(this);
       }
     });
@@ -27,6 +36,13 @@ export class Popup {
   }
 
   render() {
+    if (this.errorMessage !== null) {
+      return `
+        <div class="error">${this.errorMessage}</div>
+        <div class="error-info">${TEXT_ERROR_INFO}</div>
+      `;
+    }
+
     if (this.pageTime === null) {
       return `
         <div class="loading">

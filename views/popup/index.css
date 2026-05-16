@@ -7,7 +7,7 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   font-size: 13px;
   margin: 0;
-  background: #ffffff;
+  background: rgb(255, 255, 255);
   min-width: 260px;
 }
 
@@ -29,6 +29,21 @@ body {
   animation: pulse 1.4s ease-in-out infinite;
 }
 
+/* Error */
+
+.error {
+  padding: 10px 16px;
+  color: rgb(96, 99, 104);
+  line-height: 1.2;
+}
+
+.error-info {
+  padding: 0 16px 10px;
+  color: rgb(96, 99, 104);
+  font-size: 11px;
+  line-height: 1.4;
+}
+
 /* InfoBlock */
 
 .infoblock {
@@ -40,12 +55,12 @@ body {
 }
 
 .infoblock .label {
-  color: #606368;
+  color: rgb(96, 99, 104);
 }
 
 .infoblock .value {
   font-weight: 500;
-  color: #202124;
+  color: rgb(32, 33, 36);
 }
 
 
