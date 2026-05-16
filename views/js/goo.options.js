@@ -46,7 +46,7 @@ export class Options {
             </div>
           </div>
         </card>
-        <h2>Info</h2>
+        <h2>About reading speed</h2>
         <card>
           <div class="card-row">
             <label>

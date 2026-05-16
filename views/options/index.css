@@ -7,19 +7,19 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   font-size: 81.25%; /* should match system size */
   margin: 0;
-  background: rgb(241, 243, 244);
+  background: rgb(254, 254, 254);
 }
 
 toolbar {
   display: flex;
-  background: rgb(51, 103, 214);
-  color: rgb(255, 255, 255);
+  background: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
   height: 56px;
 }
 
 toolbar h1 {
-  font-size: 16px;
-  font-weight: 400;
+  font-size: 24px;
+  font-weight: 500;
   line-height: 16px;
   letter-spacing: 0.25px;
   margin: 8px;
@@ -50,8 +50,8 @@ card {
   padding: 0;
 
   background: #ffffff;
-  border-radius: 4px;
-  box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+  border-radius: 8px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 1px 2px 0px, rgba(0, 0, 0, 0.15) 0 2px 6px 2px;
 }
 
 .card-row {
@@ -60,7 +60,7 @@ card {
 
   padding: 0 20px;
 
-  border-bottom: 1px solid rgb(220, 220, 220);
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
 }
 
 .card-row:last-child {
@@ -68,7 +68,7 @@ card {
 }
 
 .card-row label {
-  padding: 16px 0;
+  padding: 18px 0;
   width: 100%;
 }
 
@@ -79,55 +79,59 @@ card {
 
 input[type="number"],
 select {
-  border: none; /*1px solid rgb(200, 200, 200);*/
-  border-radius: 2px;
-  padding: 8px;
+  border: 1px solid rgb(199, 199, 199);
+  border-radius: 8px;
+  padding: 10px;
   margin: 8px 0;
   width: 50px;
 
-  background: rgb(241, 243, 244);
+  background: rgb(255, 255, 255);
   font-size: 13px;
 }
 
 select {
-  width: 140px;
-  border-right: transparent 8px solid;
+  appearance: none;
+
+  width: 200px;
+
+  background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 16 16'><path fill='%235f6368' d='M4 6l4 4 4-4z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: calc(100% - 6px) 50%;
+  padding-right: 32px;
 }
 
 input[type="number"]:focus,
 select:focus {
-  outline-color: transparent;
-  outline-style: none;
+  outline: 2px solid rgb(11, 87, 208);
+  outline-offset: -1px;
+}
 
-  border-bottom: 0px solid rgb(51, 103, 214);
-  box-shadow: rgb(51, 103, 214) 0px 2px;
+input[type="number"]:hover,
+select:hover {
+  background-color: rgba(31, 31, 31, 0.06);
 }
 
 .card-button {
   margin: 8px 0;
-  padding: 8px 12px;
+  padding: 10px 20px;
 
   color: rgb(255, 255, 255);
-  background: rgb(26, 115, 232);
-  border: none;
-  border-radius: 4px;
+  background:rgb(11, 87, 208);
+  border: 0 solid rgb(168, 199, 250);
+  border-radius: 100px;
   font-size: 13px;
   font-weight: 600;
 }
 
 .card-button:focus {
-  outline-color: transparent;
-  outline-style: none;
-
-  box-shadow: 0 0 0 2px rgba(26, 115, 232, .4);
+  outline: 2px solid rgb(11, 87, 208);
+  outline-offset: 1px;
 }
 
 .card-button:active:hover {
-  background: rgb(120, 159, 234);
+  background-color: rgb(30, 99, 210);
 }
 
 .card-button:hover {
-  background: rgba(26, 115, 232, .9);
-  box-shadow: 0 1px 2px 0 rgba(66, 133, 244, .3),
-              0 1px 3px 1px rgba(66, 133, 244, .15);
+  background-color: rgb(30, 99, 210);
 }
