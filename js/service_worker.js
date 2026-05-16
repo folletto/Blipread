@@ -34,8 +34,6 @@ class Blipread {
     // Update when switching windows
     chrome.windows.onFocusChanged.addListener(this.executeContentScript.bind(this));
 
-    // Run on icon click
-    chrome.action.onClicked.addListener((function(tab) { this.executeContentScript(); }).bind(this) );
   }
 
   executeContentScript() {
@@ -65,6 +63,10 @@ class Blipread {
   }
 
   onMessageUpdate(request, sender, sendResponse) {
+    if (request.requestRefresh) {
+      this.executeContentScript();
+    }
+
     if (request.pageState) {
       this.sendMessage({ pageEval: {
         pageTime: Math.ceil(request.pageState.pageWordsLength / this.readingSpeed),
