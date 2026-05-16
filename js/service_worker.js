@@ -2,8 +2,16 @@
  * Blipread: internal process
  */
 
+// System
 const AVERAGE_READING_SPEED = 200;
 const COLOR_DEFAULT = "";
+
+// Text
+const TEXT_REFRESH_DEFAULT = "No content found";
+const TEXT_PAGE_NOT_ACCESSIBLE = "This page is not accessible";
+const TEXT_TAB_NOT_FOUND = "No tab found";
+const TEXT_TOOLTIP = " min read · click to refresh";
+
 
 class Blipread {
   constructor() {
@@ -20,6 +28,7 @@ class Blipread {
 
     // Update when messages are sent
     chrome.runtime.onMessage.addListener(this.onMessageUpdate.bind(this));
+    
     // Update when switching tabs
     chrome.tabs.onActivated.addListener(this.executeContentScript.bind(this));
     // Update when switching windows
@@ -32,7 +41,7 @@ class Blipread {
   executeContentScript() {
     // Default
     this.setExtensionIcon("·");
-    chrome.action.setTitle({ title: "Page too short" });
+    chrome.action.setTitle({ title: TEXT_REFRESH_DEFAULT });
 
     chrome.tabs.query({ active: true, lastFocusedWindow: true }).then(function([tab]) {
       if (tab && tab.id) {
@@ -40,11 +49,11 @@ class Blipread {
           target: { tabId: tab.id },
           files: [ "js/content.js" ]
         }).catch(() => {
-          chrome.action.setTitle({ title: "This page is not accessible" });
+          chrome.action.setTitle({ title: TEXT_PAGE_NOT_ACCESSIBLE });
         });
       }
     }).catch(() => {
-      chrome.action.setTitle({ title: "No tab found" });
+      chrome.action.setTitle({ title: TEXT_TAB_NOT_FOUND });
     });
   }
 
@@ -64,7 +73,7 @@ class Blipread {
     }
 
     if (request.pageEval) {
-      chrome.action.setTitle({ title: request.pageEval.pageTime + " min read · click to refresh" });
+      chrome.action.setTitle({ title: request.pageEval.pageTime + TEXT_TOOLTIP });
 
       var labelIcon = "";
       if (request.pageEval.pageTime > 60) {
